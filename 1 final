@@ -1,0 +1,35 @@
+// Lab 9A - Functions.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+int FindMax(int, int, int);
+void PrintVal(int, ofstream&);
+int main()
+{
+	ofstream outfile;
+	outfile.open("output.txt");
+	int A, B, C, Biggest;
+	cout << "Please enter 3 integers\n";
+	cin >> A >> B >> C;
+	Biggest = FindMax(A, B, C);
+	PrintVal(Biggest, outfile);
+	outfile.close();
+	return 0;
+}
+int FindMax(int N1, int N2, int N3)
+{
+	int Big;
+	if (N1 >= N2 && N1 >= N3)
+		Big = N1;
+	else if (N2 >= N1 && N2 >= N3)
+		Big = N2;
+	else
+		Big = N3;
+	return Big;
+}
+void PrintVal(int X, ofstream& out)
+{
+	out << "The answer is " << X << '\n';
+}
